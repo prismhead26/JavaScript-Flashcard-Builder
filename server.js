@@ -46,6 +46,6 @@ app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () =>
-    console.log(`Blog'N Tell Listening on port http://localhost:${PORT}`)
+    console.log(`Brain Trainer app Listening on port http://localhost:${PORT}`)
     );
 });
