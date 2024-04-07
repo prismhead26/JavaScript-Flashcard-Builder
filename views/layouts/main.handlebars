@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <title>Blog'N Tell Co.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+  body {
+    background: #353C3D
+  }
+</style>
+<body>
+	<nav class="navbar navbar-expand-sm navbar-light bg-success">
+        <div class="container-fluid ">
+          <a class="navbar-brand" href="/">Blog'N Tell</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active bi bi-house" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bi bi-calendar-event" href="/dashboard">Dashboard</a>
+              </li>			
+              {{#if logged_in}}
+              <li class="nav-item">
+                <a class="nav-link bi bi-door-closed-fill" href="/" id="logout">Logout</a>
+              </li>	
+              {{else}}
+              <li class="nav-item">
+                <a class="nav-link bi bi-door-open" href="/login">Login</a>
+              </li>
+              {{/if}}
+            </ul>		  
+          </div>
+        </div>
+      </nav>
+
+    <div class="mt-5">{{{ body }}}</div>
+    <script src="/js/logout.js"></script>
+<footer class="text-success text-center fw-bold mt-5">&copy; Copyright 2024 Aiden Wahed. All Rights Reserved.</footer>
+</body>
+</html>

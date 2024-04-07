@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () =>
+    app.listen(PORT, () =>
     console.log(`Blog'N Tell Listening on port http://localhost:${PORT}`)
-  );
+    );
 });
