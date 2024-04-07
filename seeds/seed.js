@@ -2,17 +2,14 @@ require("dotenv").config();
 const sequelize = require("../config/connection");
 
 const seedUser = require("./userData");
-const seedBlog = require("./blogData");
-const seedComment = require("./commentData");
+const seedNote = require("./noteData");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   await seedUser();
 
-  await seedBlog();
-
-  await seedComment();
+  await seedNote();
 
   process.exit(0);
 };
