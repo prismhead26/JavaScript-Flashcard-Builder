@@ -1,0 +1,51 @@
+<style>
+  .container {
+    width: 400px;
+    height: 440px;
+  }
+</style>
+<div class="text-center text-white container border border-5 border-success rounded shadow">
+  <h2 class="py-5" style="color: #ff9999">Login</h2>
+
+  <form class="form login-form text-white">
+    <div class="form-group">
+      <label for="username-login" style="color: #ff9999">username:</label>
+      <input class="form-input form-control-sm bg-secondary" type="text" id="username-login" />
+    </div>
+    <div class="form-group py-3">
+      <label for="password-login" style="color: #ff9999">password:</label>
+      <input class="form-input form-control-sm bg-secondary" type="password" id="password-login" />
+    </div>
+    <div class="form-group py-3">
+      <button class="btn btn-primary" type="submit">login</button>
+    </div>
+    <p style="color: #ff9999">New User? <a href="/signup">Signup</a></p>
+  </form>
+</div>
+
+    <div
+  class="modal fade"
+  id="errorModal"
+  tabindex="-1"
+  aria-labelledby="errorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Unable to login. Please try again.</h5>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="/js/login.js"></script>
