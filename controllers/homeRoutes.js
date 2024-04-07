@@ -1,6 +1,6 @@
 // ROUTES FOR HTML TEMPLATES
 const router = require("express").Router();
-const { User, Blog, Comment } = require("../models");
+const { User, Note } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Route to get main HTML page
@@ -44,7 +44,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
         },
       ],
     });
-    const note = noteData.get({ plain: true });
+    const note = userData.get({ plain: true });
 
     res.render("dashboard", {
       ...note,

@@ -36,20 +36,22 @@ a:focus {
       <h1 class="fw-bolder" style="color: #ff9999">In order to create a flashcard, head to over the dashboard once logged in.</h1>
     {{/if}}
     <section class="row justify-content-around d-flex">
-      
+
       {{#if notes.length}}
         {{#if logged_in}}
           {{#each notes}}
           <article class="col-5 border border-5 border-success rounded m-3 p-3 shadow bg-secondary-subtle">
-            <h3 class="h2 text-black text-center fw-bolder"><a href="./blog/{{id}}" data-bs-toggle="modal" data-bs-target="#myCommentModal{{id}}" data-id="{{id}}">{{title}}</a></h3>
+            <div class="h2 text-black text-center fw-bolder"><a role="button" href="#bodyData{{id}}" data-bs-toggle="collapse" aria-expanded="false" aria-controls="bodyData{{id}}">{{title}}</a><div/>
+            <div class="collapse" id="bodyData{{id}}">
             <p class="h4 text-light text-center py-2">{{body}}</p>
+            </div>
           </article>
           {{/each}}
         {{else}}
         <style>
     body {
-        background: rgb(29,4,15);
-        background: radial-gradient(circle, rgba(29,4,15,1) 0%, rgba(162,112,91,1) 100%);
+        background: rgb(0,0,0);
+        background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(75,24,107,1) 100%);
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
         height: 100vh;

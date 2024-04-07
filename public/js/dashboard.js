@@ -2,11 +2,11 @@
 const createBlog = async (event) => {
     event.preventDefault();
   
-    const title = document.querySelector("#new-blog-title").value.trim();
-    const body = document.querySelector("#new-blog-body").value.trim();
+    const title = document.querySelector("#new-note-title").value.trim();
+    const body = document.querySelector("#new-note-body").value.trim();
   
     if (title && body) {
-      const response = await fetch(`api/blogs`, {
+      const response = await fetch(`api/notes`, {
         method: "POST",
         body: JSON.stringify({ title, body }),
         headers: { "Content-Type": "application/json" },
@@ -25,5 +25,5 @@ const createBlog = async (event) => {
   };
 
   document
-    .querySelector("#new-blog")
+    .querySelector("#new-note")
     .addEventListener("click", createBlog);
