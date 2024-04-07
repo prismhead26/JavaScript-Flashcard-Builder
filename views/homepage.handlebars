@@ -1,0 +1,78 @@
+<style>
+  /* unvisited link */
+a:link {
+    color: blue;
+}
+
+/* visited link */
+a:visited {
+    color: green;!important;
+}
+
+/* mouse over link */
+a:hover {
+    color: Hotpink;
+}
+
+/* selected link */
+a:focus {
+    color: red;
+}
+</style>
+
+
+  <header class="container d-flex flex-column align-items-center">
+    <h1 class="fw-bolder fst-italic" style="color: #ff9999">Welcome to the Brain Trainer!</h1>
+    <p class="h4 fw-bold fst-italic" style="color: #ff9999">A Creative, Clever, and Effective flashcard page!</p>
+      {{#unless logged_in}}
+        <p class="mt-3 text-warning"><strong>Tip:</strong> to continue, open the login page.</p>
+      {{/unless}}
+  </header>
+
+  <div class="container">
+    {{#if notes.length}}
+      <h1 class="fw-bolder mt-5" style="color: #ff9999">All Flashcards: </h1>
+    {{else}}
+      <h1 class="fw-bolder" style="color: #ff9999">In order to create a flashcard, head to over the dashboard once logged in.</h1>
+    {{/if}}
+    <section class="row justify-content-around d-flex">
+      
+      {{#if notes.length}}
+        {{#if logged_in}}
+          {{#each notes}}
+          <article class="col-5 border border-5 border-success rounded m-3 p-3 shadow bg-secondary-subtle">
+            <h3 class="h2 text-black text-center fw-bolder"><a href="./blog/{{id}}" data-bs-toggle="modal" data-bs-target="#myCommentModal{{id}}" data-id="{{id}}">{{title}}</a></h3>
+            <p class="h4 text-light text-center py-2">{{body}}</p>
+          </article>
+          {{/each}}
+        {{else}}
+        <style>
+    body {
+        background: rgb(29,4,15);
+        background: radial-gradient(circle, rgba(29,4,15,1) 0%, rgba(162,112,91,1) 100%);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>
+          {{#each notes}}
+          <article class="col-5 border border-5 border-success rounded m-3 p-3 shadow bg-secondary bg-opacity-10">
+            <h1 class="text-black text-center">{{title}}</h1>
+            <p class="h4 text-light text-cente py-2">{{body}}</p>
+          </article>
+          {{/each}}
+        {{/if}}
+      {{/if}}
+    </section>
+  </div>

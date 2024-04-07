@@ -6,25 +6,19 @@ const withAuth = require("../utils/auth");
 // Route to get main HTML page
 router.get("/", async (req, res) => {
   try {
-    const blogData = await Blog.findAll({
+    const noteData = await Note.findAll({
       include: [
         {
-          model: Comment,
-          attributes: [ "description", "id", "user_id" ],
-          include: [
-            {
-              model: User,
-              attributes: ["name"],
-            },
-          ],
+          model: User,
+          attributes: ["name"],
         },
       ],
-    });
+  });
 
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
-    // console.log('blog data ========', blogs)
+    const notes = noteData.map((note) => note.get({ plain: true }));
+    // console.log('note data ========', notes)
     res.render("homepage", {
-      blogs,
+      notes,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -45,15 +39,15 @@ router.get("/dashboard", withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       include: [
         {
-          model: Blog,
+          model: Note,
           attributes: ["title", "body", "id", "user_id"],
         },
       ],
     });
-    const user = userData.get({ plain: true });
+    const note = noteData.get({ plain: true });
 
     res.render("dashboard", {
-      ...user,
+      ...note,
       logged_in: req.session.logged_in,
     });
   } catch (error) {
