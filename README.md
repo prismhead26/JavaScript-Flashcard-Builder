@@ -2,7 +2,7 @@
 
 ## Description:
 
-The main goal of this project is to build a flashcard application.
+The main goal of this project is to build a flashcard application focusing on improving interviews.
 
 ## Table of Contents:
 - [Installation Instructions](#Installation-Instructions)
